@@ -130,7 +130,7 @@ bot.on("message", async message => {
         }else{
           bdd["reunions"][args[1]] = args[3]
           SaveBDD();
-          message.channel.send("Reunion planifiée pour le " + args[1] + " dans le but de " + args[2])
+          message.channel.send("Reunion planifiée pour le " + args[1] + " dans le but de " + args[2] " @everyone")
         }
       }
     }
