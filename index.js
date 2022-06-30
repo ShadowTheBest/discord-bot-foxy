@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = require('./token.json');
 const prefix = "$"
 const fs = require('fs')
 const bdd = require("./bdd.json")
