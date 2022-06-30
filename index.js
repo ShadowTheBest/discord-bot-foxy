@@ -102,7 +102,7 @@ bot.on("message", async message => {
     
         let args = message.content.trim().split(/ +/g)
         
-        utilisateur = message.mentions.members.first();
+        utilisateur = message.mentions.users.first();
         temps = args[2]
         raison = args[3]
         
