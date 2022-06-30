@@ -97,7 +97,11 @@ bot.on("message", async message => {
     }
   }
   
-  if(message.content.startsWith(prefix + "ban"){
+
+})
+
+bot.on("message", async message => {
+    if(message.content.startsWith(prefix + "ban"){
       if(message.member.hasPermission('BAN_MEMBERS')) {
     
         let args = message.content.trim().split(/ +/g)
@@ -114,8 +118,7 @@ bot.on("message", async message => {
             message.guild.members.unban(utilisateur.id)
           }, temps*1000)
         }
-          
-        }
+       }
       }
      }
 })
