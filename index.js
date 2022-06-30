@@ -97,17 +97,29 @@ bot.on("message", async message => {
     }
   }
   
-  if(message.content.startsWith(prefix + "ban")){
-  if(message.member.hasPermission('BAN_MEMBERS')){
-    if(!message.mentions.users.first()) return;
-
-    utilisateur = message.mentions.users.first().id
-
-    message.guild.member.ban(utilisateur)
-    message.channel.send(utilisateur + "a été banni")
-  }
-}
+  if(message.content.startswith(prefix + "ban"){
+      if(message.member.hasPermission('BAN_MEMBERS')) {
+    
+        let args = message.content.trim().split(/ +/g)
+        
+        utilisateur = message.mentions.member.first();
+        temps = args[2]
+        raison = args[3]
+        
+        if(!utilisateur) {
+          return;
+        }else {
+          message.guild.members.ban(utilisateur.id);
+          setTimeout(function(){
+            message.guild.members.unban(utilisateur.id)
+          }, temps*1000)
+        }
+          
+        }
+      }
+     }
 })
+
 
 
 function SaveBDD() {
