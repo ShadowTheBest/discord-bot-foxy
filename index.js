@@ -97,7 +97,7 @@ bot.on("message", async message => {
     }
   }
   
-  if(message.content.startswith(prefix + "ban"){
+  if(message.content.startsWith(prefix + "ban"){
       if(message.member.hasPermission('BAN_MEMBERS')) {
     
         let args = message.content.trim().split(/ +/g)
