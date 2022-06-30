@@ -128,7 +128,7 @@ bot.on("message", async message => {
         if(!args[3]){
           message.channel.send("Veuillez rentre un nom pour cette réunion")
         }else{
-          bdd["reunions"][args[1]] = args[2]
+          bdd["reunions"][args[1]] = args[3]
           SaveBDD();
         }
       }
