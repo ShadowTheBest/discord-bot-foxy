@@ -96,31 +96,48 @@ bot.on("message", async message => {
     }
   }
   if(message.content.startsWith(prefix + "ban")){
-      if(message.member.hasPermission('BAN_MEMBERS')) {
-    
-        let args = message.content.trim().split(/ +/g)
-        
-        utilisateur = message.mentions.users.first();
-        temps = args[2]
-        raison = args[3]
-        
-        if(!utilisateur) {
-          return;
-        }else {
-          message.guild.members.ban(utilisateur.id);
-          setTimeout(function(){
-            message.guild.members.unban(utilisateur.id)
-          }, temps*1000)
-        }
-       }
+    if(message.member.hasPermission('BAN_MEMBERS')) {
+  
+      let args = message.content.trim().split(/ +/g)
+      
+      utilisateur = message.mentions.users.first();
+      temps = args[2]
+      raison = args[3]
+      
+      if(!utilisateur) {
+        return;
+      }else {
+        message.guild.members.ban(utilisateur.id);
+        setTimeout(function(){
+          message.guild.members.unban(utilisateur.id)
+        }, temps*1000)
       }
+    }
+  }
+
+  if(message.content.startsWith(prefix + "planifyr")){
+
+    let args = message.content.trim().split(/ +/g)
+
+    if(!args[1]){
+      message.channel.send("Veuillez entrer une date de réunion")
+    }else{
+      if(!args[2]){
+        message.channel.send("Veuillez entrer pourquoi faire cette réunion en un seul mot")
+      }else {
+        if(!args[3]){
+          message.channel.send("Veuillez rentre un nom pour cette réunion")
+        }else{
+          bdd["reunions"][args[1]] = args[2]
+          SaveBDD();
+        }
+      }
+    }
+
+  }
+
 
 })
-
-bot.on("message", async message => {
-    
-})
-
 
 
 function SaveBDD() {
