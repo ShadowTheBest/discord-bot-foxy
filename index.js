@@ -96,12 +96,7 @@ bot.on("message", async message => {
       
     }
   }
-  
-
-})
-
-bot.on("message", async message => {
-    if(message.content.startsWith(prefix + "ban")){
+  if(message.content.startsWith(prefix + "ban")){
       if(message.member.hasPermission('BAN_MEMBERS')) {
     
         let args = message.content.trim().split(/ +/g)
@@ -120,6 +115,11 @@ bot.on("message", async message => {
         }
        }
       }
+
+})
+
+bot.on("message", async message => {
+    
 })
 
 
